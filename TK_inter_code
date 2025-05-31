@@ -1,0 +1,26 @@
+import tkinter as tk
+def calculate_traffic_intensity():
+num_vehicles = int(entry_vehicles.get())
+time_seconds = int(entry_time.get())
+intensity = num_vehicles / time_seconds
+result_label.config(text="Traffic intensity: {:.2f}".format(intensity))
+# Create main window
+root = tk.Tk()
+root.title("Traffic Intensity Calculator")
+# Create input fields
+label_vehicles = tk.Label(root, text="Number of vehicles:")
+label_vehicles.grid(row=0, column=0, padx=10, pady=5)
+entry_vehicles = tk.Entry(root)
+entry_vehicles.grid(row=0, column=1, padx=10, pady=5)
+label_time = tk.Label(root, text="Time in seconds:")
+label_time.grid(row=1, column=0, padx=10, pady=5)
+entry_time = tk.Entry(root)
+entry_time.grid(row=1, column=1, padx=10, pady=5)
+# Create calculate button
+calculate_button = tk.Button(root, text="Calculate",
+command=calculate_traffic_intensity)
+calculate_button.grid(row=2, column=0, columnspan=2, pady=10)
+# Create result label
+result_label = tk.Label(root, text="")
+result_label.grid(row=3, column=0, columnspan=2)
+root.mainloop()
